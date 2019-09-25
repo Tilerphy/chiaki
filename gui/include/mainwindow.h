@@ -39,7 +39,13 @@ struct DisplayServer
 	QString GetHostAddr() const { return discovered ? discovery_host.host_addr : manual_host.GetHost(); }
 };
 
-class MainWindow : public QMainWindow
+//#ifdef CHIAKI_GUI_ENABLE_QT_MACEXTRAS
+//typedef QWindow MainWindowBase;
+//#else
+typedef QMainWindow MainWindowBase;
+//#endif
+
+class MainWindow : public MainWindowBase
 {
 	Q_OBJECT
 
